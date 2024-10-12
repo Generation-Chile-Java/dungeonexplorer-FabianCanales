@@ -1,18 +1,17 @@
 package PlayerStuff;
 
-import java.util.Map;
+import EnemiesAndStuff.EnemigoBase;
+import Interfaces.DamageControl;
 
-public class PlayerStats {
+import java.util.List;
+
+public class PlayerStats  {
     // Definiendo los Stats que el jugador tendra durante el juego  [A futuro si agrego clases el usuario tendra stats distintos basados en la clase que elija ]
     private String playerName;
-    private  Integer vidaMaxima = 150;
-    private Integer vidaActual ;
-    private Integer vidaInicial ;
-    private Integer armadura = 0;
-    private  Integer manaMaximo = 150 ;
-    private Integer manaActual ;
-    private Integer dañoBase = 2 ;
-    private Map<String, Integer> inventario;
+    private  Integer vidaJugador = 10;
+    private  Integer mana = 15 ;
+    private Integer dañojugador = 2 ;
+    private List<String> inventario;
 
     public String getPlayerName() {
         return playerName;
@@ -22,93 +21,71 @@ public class PlayerStats {
         this.playerName = playerName;
     }
 
-    public Integer getVidaMaxima() {
-        return vidaMaxima;
+    public Integer getVidaJugador() {
+        return vidaJugador;
     }
 
-    public void setVidaMaxima(Integer vidaMaxima) {
-        this.vidaMaxima = vidaMaxima;
+    public void setVidaJugador(Integer vidaJugador) {
+        this.vidaJugador = vidaJugador;
+    }
+    public Integer getMana() {
+        return mana;
     }
 
-    public Integer getVidaActual() {
-        return vidaActual;
+    public void setMana(Integer mana) {
+        this.mana = mana;
+    }
+    public Integer getDañojugador() {
+        return dañojugador;
     }
 
-    public void setVidaActual(Integer vidaActual) {
-        this.vidaActual = vidaActual;
+    public void setDañojugador(Integer dañojugador) {
+        this.dañojugador = dañojugador;
     }
 
-    public Integer getVidaInicial() {
-        return vidaInicial;
-    }
-
-    public void setVidaInicial(Integer vidaInicial) {
-        this.vidaInicial = vidaInicial;
-    }
-
-    public Integer getArmadura() {
-        return armadura;
-    }
-
-    public void setArmadura(Integer armadura) {
-        this.armadura = armadura;
-    }
-
-    public Integer getManaMaximo() {
-        return manaMaximo;
-    }
-
-    public void setManaMaximo(Integer manaMaximo) {
-        this.manaMaximo = manaMaximo;
-    }
-
-    public Integer getManaActual() {
-        return manaActual;
-    }
-
-    public void setManaActual(Integer manaActual) {
-        this.manaActual = manaActual;
-    }
-
-    public Integer getDañoBase() {
-        return dañoBase;
-    }
-
-    public void setDañoBase(Integer dañoBase) {
-        this.dañoBase = dañoBase;
-    }
-
-    public Map<String, Integer> getInventario() {
+    public List<String> getInventario() {
         return inventario;
     }
 
-    public void setInventario(Map<String, Integer> inventario) {
+    public void setInventario(List<String> inventario) {
         this.inventario = inventario;
     }
 
     public PlayerStats() {
     }
 
-    public PlayerStats(String playerName, Integer vidaMaxima, Integer vidaActual, Integer vidaInicial, Integer armadura, Integer manaMaximo, Integer manaActual, Integer dañoBase, Map<String, Integer> inventario) {
+    public PlayerStats(String playerName, Integer vidaJugador, Integer manaMaximo, Integer dañojugador, List<String> inventario) {
         this.playerName = playerName;
-        this.vidaMaxima = vidaMaxima;
-        this.vidaActual = vidaActual;
-        this.vidaInicial = vidaInicial;
-        this.armadura = armadura;
-        this.manaMaximo = manaMaximo;
-        this.manaActual = manaActual;
-        this.dañoBase = dañoBase;
+        this.vidaJugador = vidaJugador;
+        this.mana = manaMaximo;
+        this.dañojugador = dañojugador;
         this.inventario = inventario;
     }
 
-    public void playerAtack(){
-        System.out.println("Estoy atacando ");
+    // Usada para mostrar los stats del jugador
+  public void PlayerStatDisplay(){
+      System.out.println(playerName + "" + " Tiene la siguiente cantidad de vida " + vidaJugador +" '\n'"  + "Actualmente Haces el siguiente daño " + dañojugador +" ♥  De daño  ");
     }
-    public void playerTaunt(){
-        System.out.println("Te estoy insultando");
+    // ingresar objeto al inventario
+    public void IgresarAlInventario(String objeto){
+        inventario.add(objeto);
+        System.out.println("Recibiste el siguiente objeto" + objeto);
+
     }
-    public void playerDie(){
-        System.out.println("Estoy Muerto");
+    //Permite al jugador recibir daño
+    public void jugadorRecibeDaño(Integer dañoEnemigo){
+        this.vidaJugador = vidaJugador -dañoEnemigo ;
+        System.out.println("Recibiste " + dañoEnemigo + " De daño ");
     }
 
+    @Override
+    public String toString() {
+        return "PlayerStats{" +
+                "playerName='" + playerName + '\'' +
+                ", vidaJugador=" + vidaJugador +
+                ", mana=" + mana +
+                ", dañojugador=" + dañojugador +
+                ", inventario=" + inventario +
+                '}';
+    }
 }

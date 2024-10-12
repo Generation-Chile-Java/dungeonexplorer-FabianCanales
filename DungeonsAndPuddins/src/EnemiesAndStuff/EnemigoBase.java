@@ -2,57 +2,51 @@ package EnemiesAndStuff;
 
 public class EnemigoBase {
     //Se definen los Stats base del prototipo de enemigo que las demas clases expandiran
-    private Integer vidaActual ;
-    private Integer armadura = 0;
-    private Integer manaActual ;
-    private Integer dañoBase = 2 ;
+    private Integer vidaEnemigo;
+    private Integer mana;
+    private Integer danioEnemigo = 2 ;
 
-    public Integer getVidaActual() {
-        return vidaActual;
+    public Integer getVidaEnemigo() {
+        return vidaEnemigo;
     }
 
-    public void setVidaActual(Integer vidaActual) {
-        this.vidaActual = vidaActual;
+    public void setVidaEnemigo(Integer vidaEnemigo) {
+        this.vidaEnemigo = vidaEnemigo;
     }
 
-    public Integer getArmadura() {
-        return armadura;
+
+
+    public Integer getMana() {
+        return mana;
     }
 
-    public void setArmadura(Integer armadura) {
-        this.armadura = armadura;
+    public void setMana(Integer mana) {
+        this.mana = mana;
     }
 
-    public Integer getManaActual() {
-        return manaActual;
+    public Integer getDanioEnemigo() {
+        return danioEnemigo;
     }
 
-    public void setManaActual(Integer manaActual) {
-        this.manaActual = manaActual;
-    }
-
-    public Integer getDañoBase() {
-        return dañoBase;
-    }
-
-    public void setDañoBase(Integer dañoBase) {
-        this.dañoBase = dañoBase;
+    public void setDanioEnemigo(Integer danioEnemigo) {
+        this.danioEnemigo = danioEnemigo;
     }
 
 
     public EnemigoBase() {}
 
-    public EnemigoBase(Integer vidaActual, Integer armadura, Integer manaActual, Integer dañoBase) {
-        this.vidaActual = vidaActual;
-        this.armadura = armadura;
-        this.manaActual = manaActual;
-        this.dañoBase = dañoBase;
+    public EnemigoBase(Integer vidaEnemigo, Integer mana, Integer danioEnemigo) {
+        this.vidaEnemigo = vidaEnemigo;
+        this.mana = mana;
+        this.danioEnemigo = danioEnemigo;
     }
-    public  void tautEnemigo(){
+    public  void tauntEnemigo(){
         System.out.println("Estoy atacando");
     }
 
     public void ataqueEnemigo(){
-        System.out.println("Estoy atacando");
+         int ataquesaliente = danioEnemigo;
+        System.out.println("Muere puddin Detestable");
     }
 }
+
