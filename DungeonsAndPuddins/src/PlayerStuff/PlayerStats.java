@@ -70,7 +70,7 @@ public class PlayerStats implements GameObject {
     // ingresar objeto al inventario
     public void IgresarAlInventario(String objeto){
         inventario.add(objeto);
-        System.out.println("Recibiste el siguiente objeto" + objeto);
+        System.out.println("Recibiste el siguiente objeto " + objeto);
 
     }
 

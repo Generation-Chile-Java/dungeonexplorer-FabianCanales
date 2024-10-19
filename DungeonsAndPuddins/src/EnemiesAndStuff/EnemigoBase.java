@@ -1,9 +1,11 @@
 package EnemiesAndStuff;
 
+
+
 public class EnemigoBase {
     //Se definen los Stats base del prototipo de enemigo que las demas clases expandiran
-    private String nombreEnemigo = "Amargaditos";
-    private Integer vidaEnemigo;
+    private String nombreEnemigo = "Amargadito";
+    private Integer vidaEnemigo = 5;
     private Integer mana;
     private Integer danioEnemigo = 2 ;
 
@@ -61,14 +63,23 @@ public class EnemigoBase {
         if (vidaEnemigo > 0){
             System.out.println( nombreEnemigo + "Ha recibido " + danioJugador + " daño de Daño ");
         }else {
-            System.out.println(nombreEnemigo + " Ha muerto por el daño causado ");
+            System.out.println(nombreEnemigo + " \uD83D\uDC80 Ha muerto por el daño causado \uD83D\uDC80 ");
         }
+
+    }
+    public  void enemigoAtaca(){
 
     }
 
 
     public void ataqueEnemigo(){
         System.out.println("Muere puddin Detestable");
+    }
+    public int AtaqueAlAzar(Double Maximo, Double Minimo){
+        if (Maximo <= Minimo){
+            throw new IllegalArgumentException("Maximo tiene que Ser mayor A minimo ");
+        }
+        return (int) (Math.random() *(Maximo - Minimo)+ Minimo );
     }
 }
 

@@ -23,7 +23,7 @@ public class EmptyRoom implements Room {
 
     @Override
     public void Entrar(PlayerStats jugador) {
-        System.out.println(jugador + "Entra a " + Infosala);
+        System.out.println(jugador.getPlayerName() + "Entra a una sala vacia  "  + Infosala);
 
     }
 }
